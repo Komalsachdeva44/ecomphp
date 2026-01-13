@@ -1,0 +1,3 @@
+# Block direct access to app folder
+RewriteEngine On
+RewriteRule ^app(/.*)?$ - [F,L]
