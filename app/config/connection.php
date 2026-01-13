@@ -1,21 +1,13 @@
 <?php
-declare(strict_types=1);
+$host="localhost";
+$username="root";
+$password="";
+$db="ecom";
 
-$host = 'localhost';
-$db   = 'ecom';
-$user = 'root';
-$pass = '';
-
-try {
-    $pdo = new PDO(
-        "mysql:host=$host;dbname=$db;charset=utf8mb4",
-        $user,
-        $pass,
-        [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        ]
-    );
-} catch (PDOException $e) {
-    die('Database connection failed');
+$conn= new mysqli($host , $username , $password , $db);
+if($conn->connect_error){
+    die("connection failed");
+}
+else{
+    echo("connected success");
 }
